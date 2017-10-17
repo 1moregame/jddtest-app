@@ -18,7 +18,7 @@
 
 <ul>
   <% @orders.each do |order| %>
-    <li><%= link_to order.title, "https://#{@shop_session.url}/admin/order/#{order.id}", target: "_top" %></li>
+    <li><%= link_to order.name, "https://#{@shop_session.url}/admin/order/#{order.id}", target: "_top" %></li>
   <% end %>
 </ul>
 
