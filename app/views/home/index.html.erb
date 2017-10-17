@@ -14,7 +14,15 @@
 </ul>
 
 <hr>
+<h2>Orders</h2>
 
+<ul>
+  <% @orders.each do |product| %>
+    <li><%= link_to order.title, "https://#{@shop_session.url}/admin/order/#{order.id}", target: "_top" %></li>
+  <% end %>
+</ul>
+
+<hr>
 <h2>Webhooks</h2>
 
 <% if @webhooks.present? %>
