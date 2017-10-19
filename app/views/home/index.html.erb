@@ -19,7 +19,15 @@
 <ul>
   <% @orders.each do |order| %>
     <li><%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "_top" %><%= order.tags %></li>
-  <% end %>
+  <%=  tags = order.tags.split(',').map(&:strip)
+       tags << "Big Spender" 
+       updated_tags = tags.uniq.join(',')
+        unless updated_tags == product.tags
+          order.tags = updated_tags
+          order.save
+        end
+    
+  end %>
 </ul>
 
 <hr>
