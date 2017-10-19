@@ -2,7 +2,7 @@ class HomeController < ShopifyApp::AuthenticatedController
   def index
     @products = ShopifyAPI::Product.find(:all, params: { limit: 10 })
     # @orders = ShopifyAPI::Order.find(:all, params: { limit: 10 })
-    @orders = [1009, 1006].collect {|order_id| ShopifyAPI::Order.find(order_id)}
+    @orders = ShopifyAPI::Order.find(:all, :params => { :id => "1009,1006" })
     @webhooks = ShopifyAPI::Webhook.find(:all)
   end
 end
