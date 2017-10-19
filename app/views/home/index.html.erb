@@ -21,7 +21,7 @@
   <%  tags = order.tags.split(',').map(&:strip) %>
     <% tags << "Big Spender" %>
     <% updated_tags = tags.uniq.join(',')%>
-    <% unless updated_tags == product.tags%>
+    <% unless updated_tags == order.tags%>
       <% order.tags = updated_tags%>
       <% order.save%>
     <% end%>
