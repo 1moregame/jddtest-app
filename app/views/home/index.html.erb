@@ -18,14 +18,14 @@
 
 <ul>
   <% @orders.each do |order| %>
-  <%  tags = order.tags.split(',').map(&:strip) %>
-    <% tags << "Big Spender" %>
-    <% updated_tags = tags.uniq.join(',')%>
-    <% unless updated_tags == order.tags%>
-      <% order.tags = updated_tags%>
-      <% order.save%>
-    <% end%>
-    <li><%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "_top" %><%= order.tags %></li>
+    <li>
+      <%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "_top" %><%= order.tags %>
+      <%= form_for @order, :url => { :action => "order_metafield" } do |f| %>
+      
+    <%= f.submit %>
+<% end %>
+    </li>
+    
   <% end %>
 </ul>
 
