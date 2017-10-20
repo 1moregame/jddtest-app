@@ -5,7 +5,7 @@ class HomeController < ShopifyApp::AuthenticatedController
     @webhooks = ShopifyAPI::Webhook.find(:all)
   end
   def create
-    @order = ShopifyAPI::Order.find(params[:id])
+    @order = ShopifyAPI::Order.find(params[:order_id])
     order.add_metafield(ShopifyAPI::Metafield.new( {
         :namespace => 'packing_list',
         :key => 'time_date',
