@@ -14,6 +14,5 @@ class HomeController < ShopifyApp::AuthenticatedController
         })) %>
 
     redirect_to @index 
-    flash[:notice] = "You're now subscribed to #{@order.name}! WooHoo!"
   end
 end
