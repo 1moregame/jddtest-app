@@ -20,7 +20,7 @@
   <% @orders.each do |order| %>
     <li>
       <%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "_top" %><%= order.tags %>
-      <%= button_to "Subscribe!", subscriptions_path(:order_id => @order.id) %>
+      <%= button_to "Subscribe!", subscriptions_path(:order_id => order.id) %>
     </li>
     
   <% end %>
