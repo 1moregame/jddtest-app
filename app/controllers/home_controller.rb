@@ -4,7 +4,7 @@ class HomeController < ShopifyApp::AuthenticatedController
     @orders = ShopifyAPI::Order.find(:all, params: { limit: 10 })
     @webhooks = ShopifyAPI::Webhook.find(:all)
   end
-  def add_meta
+  def create
     @order = ShopifyAPI::Order.find(params[:order_id])
     order.add_metafield(ShopifyAPI::Metafield.new( {
         :namespace => 'packing_list',
@@ -12,6 +12,6 @@ class HomeController < ShopifyApp::AuthenticatedController
         :value => "100",
         :value_type => 'integer'
         }))
-    redirect_to @index 
+    redirect_to '/'
   end
 end
