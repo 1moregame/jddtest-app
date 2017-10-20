@@ -20,7 +20,7 @@
   <% @orders.each do |order| %>
     <li>
       <%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "_top" %><%= order.tags %>
-      <%= form_for @order, :url => { :action => "order_metafield" } do |f| %>
+      <%= form_for order, :url => { :action => "order_metafield" } do |f| %>
       
     <%= f.submit %>
 <% end %>
