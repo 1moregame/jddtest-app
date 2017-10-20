@@ -11,8 +11,7 @@ class HomeController < ShopifyApp::AuthenticatedController
         :key => 'time_date',
         :value => "100",
         :value_type => 'integer'
-        })) %>
-
+        }))
     redirect_to @index 
   end
 end
